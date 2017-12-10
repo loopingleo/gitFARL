@@ -37,3 +37,4 @@ list(AAPLdata.columns.values)
 
 AAPLdata.tot_revnu
 AAPLdata.per_end_date
+AAPLdata.sic_code
