@@ -80,4 +80,4 @@ FCFtoTA.plot()
 sp500_tickers = save_sp500_tickers()
 sp500_tickers[9]
 
-sp500_tickers[2]
+sp500_tickers[3]
