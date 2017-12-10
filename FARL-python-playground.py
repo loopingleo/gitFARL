@@ -6,6 +6,7 @@ import pandas as pd
 import quandl
 import matplotlib.pyplot as plt
 
+quandl.ApiConfig.api_key = "skVfzQSMxY-BnuR-7Zz3"
 
 #irgendwas
 
@@ -28,4 +29,11 @@ crudedata = quandl.get("EIA/PET_RWTC_D")
 plt.plot(crudedata)
 
 
-mydata = quandl.get_table('ZACKS/FC', ticker='AAPL')
+
+#Apple financials
+AAPLdata = quandl.get_table('ZACKS/FC', ticker='AAPL')
+AAPLdata = pd.DataFrame(AAPLdata)
+list(AAPLdata.columns.values)
+
+AAPLdata.tot_revnu
+AAPLdata.per_end_date
