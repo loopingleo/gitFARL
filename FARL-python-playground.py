@@ -23,6 +23,9 @@ mydata_ind = (mydata["Value"] - mydata["Value"][1]) / mydata["Value"][1]*100.0 +
 plt.plot(mydata_ind)
 
 
+crudedata = quandl.get("EIA/PET_RWTC_D")
+
+plt.plot(crudedata)
 
 
-
+mydata = quandl.get_table('ZACKS/FC', ticker='AAPL')
