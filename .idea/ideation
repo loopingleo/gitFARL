@@ -1,19 +1,38 @@
 #collection of ideas
 
-Stock market analysis
-  
-  Fundamental analysis
-  
-  
-  Technical analysis
+Area of application
+    Stock market analysis
 
-  
-Health data analysis
-    
-    iPhone GPS data
-    
-    
-    Apple watch data
-    
+      Fundamental analysis
 
+
+      Technical analysis
+
+
+    Health data analysis
+
+        iPhone GPS data
+
+
+        Apple watch data
+
+
+Techniques
+  Machine Learning models (examples)
+    Time series forecasting
+      LSTM
+      
+    Neural nets for ...
     
+    Random forest
+    
+    
+Data sources
+  Quandl
+  Alphavantage
+  Intrinio
+  Smartphones
+  Any open big data pools?
+  
+
+
