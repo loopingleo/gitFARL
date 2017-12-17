@@ -29,7 +29,7 @@ Techniques
     
     
 Data sources
-  Quandl
+  Quandl  --> https://github.com/quandl/quandl-python/blob/master/FOR_ANALYSTS.md
   Alphavantage
   Intrinio
   Smartphones
