@@ -1,0 +1,41 @@
+#collection of ideas
+
+Area of application
+    Stock market analysis
+   
+
+      Fundamental analysis
+
+
+      Technical analysis
+
+
+    Health data analysis
+
+        iPhone GPS data
+
+
+        Apple watch data
+
+
+Techniques
+  Machine Learning models (examples)
+    Time series forecasting
+      LSTM
+      
+    Neural nets for ...
+    
+    Random forest
+    
+    
+Data sources
+  Quandl  --> https://github.com/quandl/quandl-python/blob/master/FOR_ANALYSTS.md
+  Alphavantage
+  Intrinio
+  Smartphones
+  Any open big data pools?
+  google finance client
+  https://pypi.python.org/pypi/googlefinance.client
+  
+
+
