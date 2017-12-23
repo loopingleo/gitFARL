@@ -9,11 +9,14 @@ import bs4 as bs
 import pickle
 import requests
 
+import matplotlib
+matplotlib.use('TkAgg')
+
 import os
 #f = open(os.path.expanduser("~/PycharmProjects/gitFARL/quandlapikey.txt"))
 
 #api_key = open(os.path.expanduser("~/PycharmProjects/gitFARL/quandlapikey.txt"), "r").seek(-1,2).read()
-quandl.ApiConfig.api_key = your quandl api key
+#quandl.ApiConfig.api_key = your quandl api key
 
 
 
@@ -47,6 +50,7 @@ mydata_pct_change = mydata.pct_change()
 mydata_ind = (mydata["Value"] - mydata["Value"][1]) / mydata["Value"][1]*100.0 + 100.00
 
 
+plt.interactive(False)
 plt.plot(mydata_ind)
 
 
