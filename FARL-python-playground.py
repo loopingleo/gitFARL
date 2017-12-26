@@ -58,6 +58,7 @@ crudedata = quandl.get("EIA/PET_RWTC_D")
 
 plt.plot(crudedata)
 
+plt.show()
 
 
 #Apple financials
