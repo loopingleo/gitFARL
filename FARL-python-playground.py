@@ -51,7 +51,7 @@ mydata_pct_change = mydata.pct_change()
 mydata_ind = (mydata["Value"] - mydata["Value"][1]) / mydata["Value"][1]*100.0 + 100.00
 
 
-plt.interactive(False)
+plt.interactive(True)
 plt.plot(mydata_ind)
 
 
@@ -59,11 +59,9 @@ crudedata = quandl.get("EIA/PET_RWTC_D")
 
 plt.plot(crudedata)
 
-plt.show()
-
 
 #Apple financials
-AAPLdata = quandl.get_table('ZACKS/FC', ticker='AAPL', api_key="skVfzQSMxY-BnuR-7Zz3")
+AAPLdata = quandl.get_table('ZACKS/FC', ticker='AAPL', api_key="")
 AAPLdata = pd.DataFrame(AAPLdata)
 list(AAPLdata.columns.values)
 AAPLdata
@@ -88,6 +86,42 @@ sp500_tickers = save_sp500_tickers()
 sp500_tickers[9]
 
 sp500_tickers[3]
+
+
+
+## ------------------------- Quandl Data --------------------------------------------
+
+
+
+output = pd.DataFrame()
+
+for i in range(0,505):
+    ticker = sp500_tickers[i]
+    try:
+        data = quandl.get_table('ZACKS/FC', ticker=ticker, api_key="")
+        data = pd.DataFrame(data)
+
+
+        #data.per_end_date
+        #data.sic_code
+
+
+        FCF = data.cash_flow_oper_activity[7:8] - data.cash_flow_invst_activity[7:8]
+        FCFmargin = FCF / data.tot_revnu[7:8] /10
+        FCFtoTA = FCF / data.tot_asset[7:8]
+
+
+        df = pd.DataFrame([[ticker, FCF[7], round(100*FCFmargin[7],2), round(100*FCFtoTA[7],2)]],
+                              columns=["ticker", "FCF", "FCFmargin", "FCFtoTA"])
+
+        output = output.append(df, ignore_index=True)
+    except:
+        pass
+
+
+output.to_csv("quandl_sp500.csv")
+
+
 
 
 
