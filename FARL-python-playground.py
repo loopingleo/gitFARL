@@ -104,23 +104,41 @@ free_cash_flow("AAPL", "2017-12-31")
 
 output = pd.DataFrame()
 
-for i in range(0,505):
+for i in range(0,50):
     ticker = sp500_tickers[i]
     #print(ticker)
     #fcf = pd.DataFrame(financials_download(ticker,"cf","A").loc["Free cash flow"]).iloc[0][0]
     try:
-        fcf = pd.DataFrame(financials_download(ticker, "cf", "A").loc["Free cash flow"]).iloc[0][0]
-        rev = pd.DataFrame(financials_download(ticker, "is", "A").loc["Revenue"]).iloc[0][0]
+        fcf_0 = pd.DataFrame(financials_download(ticker, "cf", "A").loc["Free cash flow"]).iloc[0][0]
+        #fcf_1 = pd.DataFrame(financials_download(ticker, "cf", "A").loc["Free cash flow"]).iloc[1][0]
+        #fcf_2 = pd.DataFrame(financials_download(ticker, "cf", "A").loc["Free cash flow"]).iloc[2][0]
+        #fcf_3 = pd.DataFrame(financials_download(ticker, "cf", "A").loc["Free cash flow"]).iloc[3][0]
+        rev_0 = pd.DataFrame(financials_download(ticker, "is", "A").loc["Revenue"]).iloc[0][0]
+        #rev_1 = pd.DataFrame(financials_download(ticker, "is", "A").loc["Revenue"]).iloc[1][0]
+        #rev_2 = pd.DataFrame(financials_download(ticker, "is", "A").loc["Revenue"]).iloc[2][0]
+        #rev_3 = pd.DataFrame(financials_download(ticker, "is", "A").loc["Revenue"]).iloc[3][0]
+        #netincome = pd.DataFrame(financials_download(ticker, "is", "A").loc["Net income"]).iloc[0][0]
         #print(ticker, ": ", fcf, " Rev: ", rev, fcf/rev)
         #print(ticker, "fcf margin: ", round(100*fcf / rev, 2))
         df = pd.DataFrame([[ticker,
-                            fcf,
-                            rev,
-                            round(100*fcf / rev, 2)]],
-                          columns=["ticker", "fcf", "rev", "fcf_margin"])
+                            fcf_0,#fcf_1,fcf_2,#fcf_3,
+                            rev_0,#rev_1,rev_2,#rev_3,
+                            round(100*fcf_0 / rev_0, 2),#round(100*fcf_1 / rev_1, 2),
+                            #round(100*fcf_2 / rev_2, 2),
+                            #round(100*fcf_3 / rev_3, 2),
+                            ]],
+                          columns=["ticker",
+                                   "fcf_0", #"fcf_1","fcf_2",#"fcf_3",
+                                   "rev", #"rev-1", "rev-2",#"rev-3",
+                                   "fcf_margin_0", #"fcf_margin_1","fcf_margin_2",#"fcf_margin_3",
+                                   #"netincome"
+                                   ])
         output = output.append(df, ignore_index=True)
     except:
         pass
 
 
-output.to_csv("test.csv")
+output.to_csv("financials_sp500.csv")
+
+
+ratios_download("AAPL").loc["Free Cash Flow USD Mil"].iloc[0]
